@@ -1,8 +1,8 @@
 # crud
 
 modules installed: 
-flask
-flask-mysql db
+flask,
+flask-mysqldb,
 pyyaml
 
 templates from getbootstrap.com
