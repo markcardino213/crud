@@ -14,9 +14,9 @@ def add():
 		idno = request.form['idno']
 		name = request.form['name']
 		course = request.form['course']
-		phone = request.form['phone']
+		yrlvl = request.form['yrlvl']
 		email = request.form['email']
-		data = database.Database(idno = idno, name = name, course = course, phone = phone, email = email)
+		data = database.Database(idno = idno, name = name, course = course, yrlvl = yrlvl, email = email)
 		data.add()
 		flash("new information added!")
 		return redirect(url_for('index'))
@@ -25,7 +25,7 @@ def add():
 	
 
 
-@app.route('/update/<int:id_data>/', methods = ['GET', 'POST'])
+@app.route('/update/<int:id_data>/')
 def update(id_data):
 	data = database.Database.get_data(id_data)
 	return render_template('update.html', crud_data = data)
@@ -37,22 +37,15 @@ def update_info(id_data):
         idno = request.form['idno']
         name = request.form['name']
         course = request.form['course']
-        phone = request.form['phone']
+        yrlvl = request.form['yrlvl']
         email = request.form['email']
-        data = database.Database(idno = idno, name = name, course = course, phone = phone, email = email, id_data = id_data)
+        data = database.Database(idno = idno, name = name, course = course, yrlvl = yrlvl, email = email, id_data = id_data)
         data.update_info(id_data)
         flash('Record Updated Successfully')
         return redirect(url_for('index'))
 
 
-@app.route('/delete/<int:id_data>/', methods = ['GET', 'POST'])
-def delete(id_data):
-	data = database.Database.get_data(id_data)
-	return render_template('delete.html', crud_data = data)
-
-
-
-@app.route('/delete_info/<int:id_data>/', methods = ['GET','POST'])
+@app.route('/delete_info/<int:id_data>/')
 def delete_info(id_data):
 	data = database.Database(id_data = id_data)
 	data.delete_info(id_data)
