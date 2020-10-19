@@ -26,7 +26,8 @@ Update Page
 
 
 Delete Page
-![image](https://user-images.githubusercontent.com/60088090/96447675-dc6ae080-1244-11eb-8d3a-1c9731b98345.png)
+![image](https://user-images.githubusercontent.com/60088090/96447910-34094c00-1245-11eb-8595-eb5bc354c55e.png)
+
 
 
 
