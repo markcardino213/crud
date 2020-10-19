@@ -2,12 +2,12 @@ from app import app, mysql
 
 class Database(object):
 
-	def __init__(self, id_data = None, idno = None, name = None, course = None, phone = None, email = None):
+	def __init__(self, id_data = None, idno = None, name = None, course = None, yrlvl = None, email = None):
 		self.id_data = id_data
 		self.idno = idno
 		self.name = name
 		self.course = course
-		self.phone = phone
+		self.yrlvl = yrlvl
 		self.email = email
 
 	@classmethod
@@ -20,7 +20,7 @@ class Database(object):
 
 	def add(self):
 		cur = mysql.connection.cursor()
-		cur.execute("INSERT INTO crud_data(idno, name, course, phone, email) VALUES(%s, %s, %s, %s, %s)",(self.idno, self.name, self.course, self.phone, self.email))
+		cur.execute("INSERT INTO crud_data(idno, name, course, yrlvl, email) VALUES(%s, %s, %s, %s, %s)",(self.idno, self.name, self.course, self.yrlvl, self.email))
 		mysql.connection.commit()
 
 
@@ -35,7 +35,7 @@ class Database(object):
 
 	def update_info(self, id_data = None):
 		cur = mysql.connection.cursor()
-		cur.execute("UPDATE crud_data SET idno = %s, name = %s, course = %s, phone = %s, email = %s WHERE id_data = %s",(self.idno, self.name, self.course, self.phone, self.email, self.id_data))
+		cur.execute("UPDATE crud_data SET idno = %s, name = %s, course = %s, yrlvl = %s, email = %s WHERE id_data = %s",(self.idno, self.name, self.course, self.yrlvl, self.email, self.id_data))
 		mysql.connection.commit()
 
 
